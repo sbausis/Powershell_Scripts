@@ -200,10 +200,10 @@ param
     [string]$Path="",
 
     # Check for later version
-    [switch] $NoVersionCheck=$False,
+    [switch] $NoVersionCheck=$True,
 
     # Check for correct version of PS
-    [switch] $NoPSVersionCheck=$False,
+    [switch] $NoPSVersionCheck=$True,
 
     # To be quiet in output (banners for example)
     [switch] $Quiet=$False,
@@ -1052,13 +1052,13 @@ Function Validate-SourceWindowsInstallation ( [String] $BootDiskFileName, `
         $script:ProgressPoint = 670
         $SourceOSVersionParts = $SourceOSVersion.Split(".")
         $script:ProgressPoint = 671
-        if ($SourceOSVersionParts.GetUpperBound(0) -ne 4) { CleanUp "Could not determine OS version from source disk."  }
+        #if ($SourceOSVersionParts.GetUpperBound(0) -ne 5) { CleanUp "Could not determine OS version from source disk."  }
 
         # Validate that the source is Windows version 6.2 or later (6.2 is Windows 8/Windows Server 2012)
         $script:ProgressPoint = 672
-        if ($SourceOSVersionParts[0] -lt 6) { CleanUp "Source OS must be version 6.2 (Windows 8/Windows Server 2012) or later." }
+        #if ($SourceOSVersionParts[0] -lt 6) { CleanUp "Source OS must be version 6.2 (Windows 8/Windows Server 2012) or later." }
         $script:ProgressPoint = 673
-        if (($SourceOSVersionParts[0] -eq 6) -and ($SourceOSVersionParts[1] -lt 2)) { CleanUp "Source OS must be version 6.2 (Windows 8/Windows Server 2012) or later." }
+        #if (($SourceOSVersionParts[0] -eq 6) -and ($SourceOSVersionParts[1] -lt 2)) { CleanUp "Source OS must be version 6.2 (Windows 8/Windows Server 2012) or later." }
 
         # Validate that the source operating system is 64-bit
         $script:ProgressPoint = 674
